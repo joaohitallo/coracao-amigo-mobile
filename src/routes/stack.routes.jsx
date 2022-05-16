@@ -3,8 +3,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack'
 const { Screen, Navigator } = createNativeStackNavigator();
 
 import { Login } from '../screens/login/Login'
-import { Home } from '../screens/home/Home'
-
+import { CadastroUser } from '../screens/cadastroUser/CadastroUser'
 export function StackRoutes() {
   return (
     <Navigator>
@@ -14,8 +13,8 @@ export function StackRoutes() {
       />
 
       <Screen
-        name="home"
-        component={Home}
+        name="CadastroUser"
+        component={CadastroUser}
       />
     </Navigator>
   )
