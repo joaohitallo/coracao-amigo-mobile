@@ -1,8 +1,10 @@
 import React from 'react';
-import { View, Text, Button } from 'react-native';
+import { View, Text, Button, Image, StyleSheet } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { Container, ContainerInput, TextTitle, ImageLogo } from './styles';
+import { InputLogin } from '../../components/InputLogin/index'
 
+import logo from '../../assets/Logo.png'
 
 
 export function Login({ navigation }) {
@@ -13,11 +15,19 @@ export function Login({ navigation }) {
 
 
   return (
-    <View >
-      <Text> login </Text>
-      <Button title="Login"
+    <Container>
+      <TextTitle> Coração Amigo</TextTitle>
+      <ImageLogo source={logo} />
+      <ContainerInput>
+        <InputLogin name="Login:" />
+        <InputLogin name="Senha:" />
+      </ContainerInput>
+
+      <Button title="Login:"
         onPress={handleLogin}
       />
-    </View>
+    </Container>
   );
+
+
 }
