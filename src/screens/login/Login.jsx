@@ -11,6 +11,7 @@ import logo from '../../assets/Logo.png'
 export function Login({ navigation }) {
 
   function handleLogin() {
+    console.log('ah');
     navigation.navigate('HomeVoluntario')
   }
 
@@ -24,8 +25,8 @@ export function Login({ navigation }) {
         <InputLogin name="Senha:" />
       </ContainerInput>
       <ButtonLogin
-        OnPress={handleLogin}
         title="Entrar"
+        onPress={handleLogin}
       />
 
     </Container>

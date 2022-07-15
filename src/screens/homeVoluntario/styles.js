@@ -1,6 +1,7 @@
 
 import styled, { css } from 'styled-components/native';
 
+
 export const Container = styled.View`
   display: flex;
   flex-direction: column;
@@ -11,12 +12,12 @@ export const Container = styled.View`
 export const ContainerDash = styled.View`
   display: flex;
   flex-direction: column;
- margin: 10px 10px 10px 10px;
+ margin: 30px 10px 10px 10px;
  padding: 10px;
   background-color: #E3F8EC;
   //justify-content: space-around;
   height: 85%;
-  border-radius:10;
+  border-radius:10px;
 `;
 
 export const Title = styled.Text`
@@ -36,6 +37,6 @@ export const Dash = styled.View`
 
 export const ContainerSubMenu = styled.View`
   height: 10%;
-background-color: black;
+//background-color: black;
 `;
 

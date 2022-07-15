@@ -6,7 +6,7 @@ export const Container = styled.View`
   flex-direction: row;
   border-radius: 8px;
   background-color: #E3F8EC;
-  margin-top: 10;
+  margin-top: 10px;
   padding: 15px;
   
 `;
@@ -19,7 +19,6 @@ font-weight: bold;
 export const InputText = styled(TextInput)`
   flex: 1;
   background-color: #E3F8EC;
-  //color: #7A7A80;
   padding: 0 13px;
   border: none;
 `;
