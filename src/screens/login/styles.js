@@ -7,16 +7,16 @@ export const Container = styled.View`
   background-color: #fff;
   justify-content: space-around;
   height: 100%;
-  padding-left: 20;
-  padding-right: 20;
+  padding-left: 20px;
+  padding-right: 20px;
 
  
 
 `;
 
 export const ImageLogo = styled.Image`
- height: 150;
-    width: 150;
+ height: 150px;
+    width: 150px;
    align-self: center;
     
 `
@@ -24,7 +24,7 @@ export const ImageLogo = styled.Image`
 export const TextTitle = styled.Text`
 color: #45BA73;
 font-weight: bold;
-font-size: 33;
+font-size: 33px;
 text-align: center;
 `
 

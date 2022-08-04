@@ -7,10 +7,6 @@ export function InputLogin({ value, name, ...rest }) {
   return (
     <Container>
       <TextLabel>{name}</TextLabel>
-      <InputText
-        value={value}
-        {...rest}
-      />
     </Container>
   )
 }

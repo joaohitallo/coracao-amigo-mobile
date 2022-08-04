@@ -4,7 +4,7 @@ import { Container, Title } from './styles';
 
 
 
-export function ButtonLogin({ title, ...rest }) {
+export default function ButtonLogin({ title, ...rest }) {
   return (
     <Container {...rest}>
       <Title>

@@ -3,7 +3,7 @@ import { View, Text, Button, Image, StyleSheet } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { Container, ContainerInput, TextTitle, ImageLogo } from './styles';
 import { InputLogin } from '../../components/InputLogin/index'
-import { ButtonLogin } from '../../components/ButtonLogin';
+import ButtonLogin from '../../components/ButtonLogin';
 
 import logo from '../../assets/Logo.png'
 
