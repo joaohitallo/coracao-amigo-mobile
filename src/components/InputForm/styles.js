@@ -6,7 +6,7 @@ export const Container = styled.View`
   flex-direction: column;
   border-radius: 8px;
   margin-top: 10px;
-  
+  min-width: 45%;
 `;
 
 export const TextLabel = styled.Text`

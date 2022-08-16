@@ -10,6 +10,7 @@ export const Container = styled.View`
 export const Title = styled.Text`
   color: #4DC886;
   font-weight: bold;
+  font-size: 18px
 `
 export const Barra = styled.View`
   height: 1px;
