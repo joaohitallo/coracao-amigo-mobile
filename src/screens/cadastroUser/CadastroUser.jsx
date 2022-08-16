@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-import { View, Text, ScrollView, KeyboardAvoidingView } from 'react-native';
+import { View, Text, ScrollView, StyleSheet } from 'react-native';
 import { Container, ButtonContent, InputContent } from './styles'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
-
+import RNPickerSelect from 'react-native-picker-select'
 
 import { InputForm } from '../../components/InputForm/index'
+import { SelectContent } from '../../components/SelectContent';
 import { TitleForm } from '../../components/TitleForm/index'
 import { Header } from '../../components/Header';
 import ButtonLogin from '../../components/ButtonLogin';
@@ -22,13 +23,7 @@ export function CadastroUser() {
   const [dependentes, setDependentes] = useState([dependente])
   const [responsavelFamiliar, setResponsavelFamiliar] = useState({ nome: '', telefone: '', estadoCivil: '', escolaridade: '', profissao: '' })
 
-  const handleChange = e => {
-    const { name, value } = e.target;
-    setResponsavelFamiliar(prevState => ({
-      ...prevState,
-      [name]: value
-    }));
-  };
+
 
   function handleSubmit() {
     console.log(responsavelFamiliar);
@@ -61,25 +56,43 @@ export function CadastroUser() {
                 telefone: item
               }))}
             value={responsavelFamiliar.telefone}
+            pattern="\([0-9]{2}\) [0-9]{4}-[0-9]{4}"
           />
-          <InputForm
-            label="Estado Civil"
-            onChangeText={item =>
-              setResponsavelFamiliar(prevState => ({
-                ...prevState,
-                estadoCivil: item
-              }))}
-            value={responsavelFamiliar.estadoCivil}
-          />
-          <InputForm
-            label="Escolaridade"
-            onChangeText={item =>
-              setResponsavelFamiliar(prevState => ({
-                ...prevState,
-                escolaridade: item
-              }))}
-            value={responsavelFamiliar.escolaridade}
-          />
+          <SelectContent label="Estado Civil">
+            <RNPickerSelect
+              placeholder={{ label: "Selecione uma Opção", value: 0 }}
+              onValueChange=
+              {item =>
+                setResponsavelFamiliar(prevState => ({
+                  ...prevState,
+                  estadoCivil: item
+                }))}
+              items={[
+                { label: "Solteiro", value: "solteiro" },
+                { label: "Casado", value: "casado" },
+                { label: "Divorciado", value: "divorciado" },
+              ]}
+            />
+          </SelectContent>
+          <SelectContent label='Escolaridade'>
+            <RNPickerSelect
+              placeholder={{ label: "Selecione uma Opção", value: 0 }}
+              onValueChange={item =>
+                setResponsavelFamiliar(prevState => ({
+                  ...prevState,
+                  escolaridade: item
+                }))}
+              items={[
+                { label: "Ensino Fundamental inconpleto", value: "ensino Fundamental inconpleto" },
+                { label: "Ensino Fundamental", value: "ensino Fundamental" },
+                { label: "Ensino médio incompleto", value: "ensino medio incompleto" },
+                { label: "Ensino médio", value: "ensino medio" },
+                { label: "Ensino superior incompleto", value: "ensino superior incompleto" },
+                { label: "Ensino superior", value: "ensino superior" },
+              ]}
+            />
+          </SelectContent>
+
           <InputForm
             label="Profissão"
             onChangeText={item =>
@@ -137,3 +150,15 @@ export function CadastroUser() {
     </KeyboardAwareScrollView>
   );
 }
+
+const styles = StyleSheet.create({
+  inputAndroid: {
+    borderWidth: 1,
+    borderColor: 'gray',
+
+  },
+  placeholder: {
+
+
+  }
+})
