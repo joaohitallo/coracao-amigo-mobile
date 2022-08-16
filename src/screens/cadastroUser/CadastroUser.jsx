@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { View, Text, ScrollView, StyleSheet } from 'react-native';
-import { Container, ButtonContent, InputContent } from './styles'
+import { Container, ButtonContent, InputContent, InputMask } from './styles'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
+import MaskInput from 'react-native-mask-input';
 import RNPickerSelect from 'react-native-picker-select'
 
 import { InputForm } from '../../components/InputForm/index'
@@ -32,13 +33,9 @@ export function CadastroUser() {
   return (
     <KeyboardAwareScrollView>
       <ScrollView>
-
         <Container>
-
           <Header title="Cadastrar Família" />
-
           <TitleForm name="Responsavel Famíliar" />
-
           <InputForm
             label="Nome"
             onChangeText={item =>
@@ -50,13 +47,13 @@ export function CadastroUser() {
           />
           <InputForm
             label="Telefone"
-            onChangeText={item =>
+            onChangeText={(masked, unmasked) =>
               setResponsavelFamiliar(prevState => ({
                 ...prevState,
-                telefone: item
+                telefone: unmasked
               }))}
             value={responsavelFamiliar.telefone}
-            pattern="\([0-9]{2}\) [0-9]{4}-[0-9]{4}"
+            mask={['(', /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/]}
           />
           <SelectContent label="Estado Civil">
             <RNPickerSelect
@@ -160,5 +157,7 @@ const styles = StyleSheet.create({
   placeholder: {
 
 
-  }
+  },
+
+
 })

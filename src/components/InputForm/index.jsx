@@ -1,19 +1,22 @@
 import React, { useState } from 'react';
-import { TextInputProps, Text } from 'react-native';
-import { Container, TextLabel, InputText } from './styles.js';
+import { Container, TextLabel, InputText, InputMask } from './styles.js';
 
-export function InputForm({ value, label, children, ...rest }) {
+export function InputForm({ value, label, mask, ...rest }) {
 
   return (
     <Container>
       <TextLabel>{label}</TextLabel>
-      {children ?
-        children
+      {mask ? <InputMask
+        mask={mask}
+        value={value}
+        {...rest}
+      />
         :
         <InputText
           value={value}
           {...rest}
-        />}
+        />
+      }
 
     </Container>
   )
