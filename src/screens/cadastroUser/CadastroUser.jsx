@@ -20,6 +20,19 @@ export function CadastroUser() {
     numeroRoupa: '',
   }
   const [dependentes, setDependentes] = useState([dependente])
+  const [responsavelFamiliar, setResponsavelFamiliar] = useState({ nome: '', telefone: '', estadoCivil: '', escolaridade: '', profissao: '' })
+
+  const handleChange = e => {
+    const { name, value } = e.target;
+    setResponsavelFamiliar(prevState => ({
+      ...prevState,
+      [name]: value
+    }));
+  };
+
+  function handleSubmit() {
+    console.log(responsavelFamiliar);
+  }
 
   return (
     <KeyboardAwareScrollView>
@@ -31,25 +44,65 @@ export function CadastroUser() {
 
           <TitleForm name="Responsavel Famíliar" />
 
-          <InputForm name="Nome" />
-          <InputForm name="Telefone" />
-          <InputForm name="Estado Civil" />
-          <InputForm name="Escolaridade" />
-          <InputForm name="Profissão" />
+          <InputForm
+            label="Nome"
+            onChangeText={item =>
+              setResponsavelFamiliar(prevState => ({
+                ...prevState,
+                nome: item
+              }))}
+            value={responsavelFamiliar.nome}
+          />
+          <InputForm
+            label="Telefone"
+            onChangeText={item =>
+              setResponsavelFamiliar(prevState => ({
+                ...prevState,
+                telefone: item
+              }))}
+            value={responsavelFamiliar.telefone}
+          />
+          <InputForm
+            label="Estado Civil"
+            onChangeText={item =>
+              setResponsavelFamiliar(prevState => ({
+                ...prevState,
+                estadoCivil: item
+              }))}
+            value={responsavelFamiliar.estadoCivil}
+          />
+          <InputForm
+            label="Escolaridade"
+            onChangeText={item =>
+              setResponsavelFamiliar(prevState => ({
+                ...prevState,
+                escolaridade: item
+              }))}
+            value={responsavelFamiliar.escolaridade}
+          />
+          <InputForm
+            label="Profissão"
+            onChangeText={item =>
+              setResponsavelFamiliar(prevState => ({
+                ...prevState,
+                profissao: item
+              }))}
+            value={responsavelFamiliar.profissao}
+          />
 
           <TitleForm name="Dados Famíliares" />
 
-          <InputForm name="Quantidade de Residentes" />
-          <InputForm name="Renda Famíliar Bruta" />
-          <InputForm name="Participa de programas sociais" />
+          <InputForm label="Quantidade de Residentes" />
+          <InputForm label="Renda Famíliar Bruta" />
+          <InputForm label="Participa de programas sociais" />
 
           <TitleForm name="Dados Residência" />
 
-          <InputForm name="Estado da Residência" />
-          <InputForm name="Tipo de Moradia" />
-          <InputForm name="Estrutura da Moradia" />
-          <InputForm name="Qualidade da água" />
-          <InputForm name="Qualidade da Energia" />
+          <InputForm label="Estado da Residência" />
+          <InputForm label="Tipo de Moradia" />
+          <InputForm label="Estrutura da Moradia" />
+          <InputForm label="Qualidade da água" />
+          <InputForm label="Qualidade da Energia" />
           <ButtonContent>
 
             <ButtonLogin title="Foto Residência" />
@@ -57,21 +110,19 @@ export function CadastroUser() {
             <ButtonLogin title="Localização" />
 
           </ButtonContent>
-          <InputForm name="Numero de dependentes" />
+          <InputForm label="Numero de dependentes" />
           {dependentes ? (<View>
             <TitleForm name="Dependente" />
 
-            <InputForm name="Nome" />
+            <InputForm label="Nome" />
             <InputContent>
-
-              <InputForm name="Idade" />
-
-              <InputForm name="Grau de parentesco" />
-
+              <InputForm label="Idade" />
+              <InputForm label="Grau de parentesco" />
             </InputContent>
-
-            <InputForm name="Nº Calçados" />
-            <InputForm name="Nº Roupas" />
+            <InputContent>
+              <InputForm label="Nº Calçados" />
+              <InputForm label="Nº Roupas" />
+            </InputContent>
           </View>
           )
 
@@ -79,7 +130,7 @@ export function CadastroUser() {
 
 
 
-          <ButtonLogin title="Cadastrar" />
+          <ButtonLogin title="Cadastrar" onPress={handleSubmit} />
         </Container>
 
       </ScrollView>
