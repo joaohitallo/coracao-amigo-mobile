@@ -1,6 +1,8 @@
 import React from 'react';
 import { Text } from 'react-native';
 
+import { Menu } from '../../components/Menu';
+
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 import { Container, Content, ContainerDash, Dash, ContainerSubMenu, Title, SubTitle, ButtonLogout } from './styles';
@@ -25,7 +27,7 @@ export function HomeVoluntario() {
         </Dash>
       </ContainerDash>
       <ContainerSubMenu>
-        <Title>sdf</Title>
+        <Menu />
       </ContainerSubMenu>
     </Container>
   );
