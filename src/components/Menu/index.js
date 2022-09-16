@@ -35,7 +35,9 @@ export function Menu({ }) {
         <Ionicons name="newspaper-sharp" size={24} color="black" />
         <Text>Cadastrar</Text>
       </Button>
-      <Button>
+      <Button
+        onPress={() => navigation.navigate('Mapa')}
+      >
         <FontAwesome5 name="route" size={24} color="black" />
         <Text>Mapa</Text>
       </Button>
