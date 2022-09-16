@@ -10,6 +10,11 @@ export function StackRoutes() {
   return (
     <Navigator>
       <Screen
+        name="HomeVoluntario"
+        component={HomeVoluntario}
+        options={{ headerShown: false }}
+      />
+      <Screen
         name="CadastroUser"
         component={CadastroUser}
         options={{ headerShown: false }}
@@ -19,11 +24,7 @@ export function StackRoutes() {
         component={Login}
         options={{ headerShown: false }}
       />
-      <Screen
-        name="HomeVoluntario"
-        component={HomeVoluntario}
-        options={{ headerShown: false }}
-      />
+
 
     </Navigator>
   )

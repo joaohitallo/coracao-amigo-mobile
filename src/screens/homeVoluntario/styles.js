@@ -1,6 +1,6 @@
 
 import styled, { css } from 'styled-components/native';
-
+import { TouchableOpacity } from 'react-native';
 
 
 export const Container = styled.View`
@@ -8,7 +8,15 @@ export const Container = styled.View`
   flex-direction: column;
   background-color: #fff;
   height: 100%;
+  padding-top: 24px;
 `;
+
+export const Content = styled.View`
+  margin-top: 18px;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-right: 12px;
+`
 
 export const ContainerDash = styled.View`
   display: flex;
@@ -26,6 +34,16 @@ text-align: center;
 margin: 5px;
 
 `
+export const ButtonLogout = styled(TouchableOpacity)`
+  
+  flex-direction: row;
+  justify-content: space-around;
+  padding: 4px 0px 4px;
+  border: 1px solid black;
+  border-radius: 6px;
+  width: 60px;
+`
+
 export const SubTitle = styled.Text`
 font-weight: bold;
 margin: 5px;
