@@ -4,6 +4,7 @@ import { Container, ButtonContent, InputContent, InputMask } from './styles'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import MaskInput from 'react-native-mask-input';
 import RNPickerSelect from 'react-native-picker-select'
+import { useNavigation } from '@react-navigation/native';
 
 import { InputForm } from '../../components/InputForm/index'
 import { SelectContent } from '../../components/SelectContent';
@@ -24,10 +25,11 @@ export function CadastroUser() {
   const [dependentes, setDependentes] = useState([dependente])
   const [responsavelFamiliar, setResponsavelFamiliar] = useState({ nome: '', telefone: '', estadoCivil: '', escolaridade: '', profissao: '' })
 
-
+  const navigation = useNavigation();
 
   function handleSubmit() {
     console.log(responsavelFamiliar);
+    navigation.navigate('HomeVoluntario')
   }
 
   return (
